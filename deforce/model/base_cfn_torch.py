@@ -51,13 +51,6 @@ class CfnTorch(nn.Module):
         output = self.act2_func(self.output(combined_output))
         return output
 
-        # x = x.clone().detach()  # torch.tensor(x, dtype=torch.float32)
-        # x = self.fc1(x)
-        # x = self.act1_func(x)
-        # x = self.fc2(x)
-        # x = self.act2_func(x)
-        # return x
-
 
 class BaseCfnTorch(BaseEstimator):
     """
