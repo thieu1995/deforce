@@ -45,9 +45,9 @@ class CfnNumpy:
     def __init__(self, input_size=5, hidden_size=10, output_size=1, act1_name="tanh", act2_name="sigmoid"):
         # Initialize weights and biases for the input-hidden and hidden-output layers
         self.weights = {
-            'weights_ih': np.ones(input_size, hidden_size),
+            'weights_ih': np.ones((input_size, hidden_size)),
             'biases_h': np.zeros((1, hidden_size)),
-            'weights_ioho': np.ones(input_size + hidden_size, output_size),
+            'weights_ioho': np.ones((input_size + hidden_size, output_size)),
             'biases_o': np.zeros((1, output_size))
         }
         self.act1_func = getattr(activators, act1_name)
