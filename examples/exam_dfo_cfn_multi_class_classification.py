@@ -27,7 +27,7 @@ data.y_test = scaler_y.transform(data.y_test)
 ## Create model
 opt_paras = {"name": "WOA", "epoch": 500, "pop_size": 20}
 model = DfoCfnClassifier(hidden_size=15, act1_name="elu", act2_name="softmax",
-                 obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=None, verbose=True)
+                 obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=None, verbose=True, seed=42)
 
 ## Train the model
 model.fit(X=data.X_train, y=data.y_train, lb=-10., ub=10.0)

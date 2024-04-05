@@ -28,7 +28,7 @@ data.y_test = scaler_y.transform(np.reshape(data.y_test, (-1, 1)))
 ## Create model
 opt_paras = {"name": "WOA", "epoch": 250, "pop_size": 30}
 model = DfoCfnRegressor(hidden_size=10, act1_name="tanh", act2_name="sigmoid",
-                        obj_name="MSE", optimizer="BaseGA", optimizer_paras=None, verbose=True)
+                        obj_name="MSE", optimizer="BaseGA", optimizer_paras=None, verbose=True, seed=42)
 
 ## Train the model
 model.fit(data.X_train, data.y_train)

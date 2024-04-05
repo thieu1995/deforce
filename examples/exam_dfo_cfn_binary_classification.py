@@ -28,7 +28,7 @@ data.y_test = scaler_y.transform(data.y_test)
 opt_paras = {"name": "WOA", "epoch": 100, "pop_size": 30}
 print(DfoCfnClassifier.SUPPORTED_CLS_OBJECTIVES)
 model = DfoCfnClassifier(hidden_size=20, act1_name="tanh", act2_name="sigmoid",
-                 obj_name="NPV", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True)
+                 obj_name="NPV", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True, seed=42)
 
 ## Train the model
 model.fit(X=data.X_train, y=data.y_train)
