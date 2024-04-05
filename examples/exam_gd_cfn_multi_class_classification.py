@@ -26,8 +26,8 @@ data.y_test = scaler_y.transform(data.y_test)
 print(type(data.X_train), type(data.y_train))
 
 ## Create model
-model = CfnClassifier(hidden_size=25, act1_name="tanh", act2_name="sigmoid", obj_name="CEL",
-                      max_epochs=10, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=True)
+model = CfnClassifier(hidden_size=25, act1_name="tanh", act2_name="softmax", obj_name="NLLL",
+                      max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=True)
 
 ## Train the model
 model.fit(X=data.X_train, y=data.y_train)

@@ -25,7 +25,7 @@ data.X_test = scaler_X.transform(data.X_test)
 data.y_train, scaler_y = data.scale(data.y_train, scaling_methods=("standard", "minmax"))
 data.y_test = scaler_y.transform(np.reshape(data.y_test, (-1, 1)))
 
-## Set up parameters for MLP
+## Set up parameters for CFN
 params = {
     "hidden_size": [10, 20],
     "act1_name": ["elu", "tanh"], #  ['relu', 'sigmoid', 'hardsigmoid', 'tanh', 'elu', 'celu', 'selu', 'glu', 'gelu'],
