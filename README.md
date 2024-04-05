@@ -20,15 +20,15 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
-deforce (DErivative Free Optimization foR Cascade forward nEural networks) is a Python library that implements variants and the traditional version of Cascade Forward Neural Networks. These include Derivative Free-optimized MLP models (such as GA, PSO, WOA, TLO, DE, ...) and Gradient Descent-optimized MLP models (such as SGD, Adam, Adelta, Adagrad, ...). It provides a comprehensive list of optimizers for training MLP models and is also compatible with the Scikit-Learn library. With deforce, 
+deforce (DErivative Free Optimization foR Cascade forward nEural networks) is a Python library that implements variants and the traditional version of Cascade Forward Neural Networks. These include Derivative Free-optimized CFN models (such as GA, PSO, WOA, TLO, DE, ...) and Gradient Descent-optimized CFN models (such as SGD, Adam, Adelta, Adagrad, ...). It provides a comprehensive list of optimizers for training CFN models and is also compatible with the Scikit-Learn library. With deforce, 
 you can perform searches and hyperparameter tuning using the features provided by the Scikit-Learn library.
 
 * **Free software:** GNU General Public License (GPL) V3 license
 * **Provided Estimator**: CfnRegressor, CfnClassifier, DfoCfnRegressor, DfoCfnClassifier
-* **Total DFO-based MLP Regressor**: > 200 Models 
-* **Total DFO-based MLP Classifier**: > 200 Models
-* **Total GD-based MLP Regressor**: 12 Models
-* **Total GD-based MLP Classifier**: 12 Models
+* **Total DFO-based CFN Regressor**: > 200 Models 
+* **Total DFO-based CFN Classifier**: > 200 Models
+* **Total GD-based CFN Regressor**: 12 Models
+* **Total GD-based CFN Classifier**: 12 Models
 * **Supported performance metrics**: >= 67 (47 regressions and 20 classifications)
 * **Supported objective functions (as fitness functions or loss functions)**: >= 67 (47 regressions and 20 classifications)
 * **Documentation:** https://deforce.readthedocs.io
@@ -46,16 +46,6 @@ The paper can be accessed at the following [link](https://doi.org/10.1038%2Fs415
 Please include these citations if you plan to use this library:
 
 ```code
-
-@software{nguyen_van_thieu_2023_10251022,
-  author       = {Nguyen Van Thieu},
-  title        = {deforce: Unleashing the Power of Metaheuristic-optimized Multi-Layer Perceptron - A Python Library},
-  month        = dec,
-  year         = 2023,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.10251021},
-  url          = {https://github.com/thieu1995/deforce}
-}
 
 @article{van2023mealpy,
   title={MEALPY: An open-source library for latest meta-heuristic algorithms in Python},
@@ -200,15 +190,15 @@ data.y_test = scaler_y.transform(data.y_test)
 ```python
 from deforce import CfnRegressor, CfnClassifier, DfoCfnRegressor, DfoCfnClassifier
 
-## Use standard MLP model for regression problem
+## Use standard CFN model for regression problem
 regressor = CfnRegressor(hidden_size=50, act1_name="tanh", act2_name="sigmoid", obj_name="MSE",
                          max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False)
 
-## Use standard MLP model for classification problem 
+## Use standard CFN model for classification problem 
 classifier = CfnClassifier(hidden_size=50, act1_name="tanh", act2_name="sigmoid", obj_name="NLLL",
                            max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False)
 
-## Use Metaheuristic-optimized MLP model for regression problem
+## Use Metaheuristic-optimized CFN model for regression problem
 print(DfoCfnClassifier.SUPPORTED_OPTIMIZERS)
 print(DfoCfnClassifier.SUPPORTED_REG_OBJECTIVES)
 
@@ -216,7 +206,7 @@ opt_paras = {"name": "WOA", "epoch": 100, "pop_size": 30}
 regressor = DfoCfnRegressor(hidden_size=50, act1_name="tanh", act2_name="sigmoid",
                             obj_name="MSE", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True)
 
-## Use Metaheuristic-optimized MLP model for classification problem
+## Use Metaheuristic-optimized CFN model for classification problem
 print(DfoCfnClassifier.SUPPORTED_OPTIMIZERS)
 print(DfoCfnClassifier.SUPPORTED_CLS_OBJECTIVES)
 
@@ -259,10 +249,10 @@ model.save_training_loss(save_path="history", filename="loss.csv")
 model.save_y_predicted(X=data.X_test, y_true=data.y_test, save_path="history", filename="y_predicted.csv")
 
 ## Save model
-model.save_model(save_path="history", filename="traditional_mlp.pkl")
+model.save_model(save_path="history", filename="traditional_CFN.pkl")
 
 ## Load model 
-trained_model = CfnRegressor.load_model(load_path="history", filename="traditional_mlp.pkl")
+trained_model = CfnRegressor.load_model(load_path="history", filename="traditional_CFN.pkl")
 ```
 
 # Support (questions, problems)

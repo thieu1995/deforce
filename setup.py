@@ -23,9 +23,9 @@ setup(
     long_description_content_type="text/markdown",
     keywords=["Cascade Forward Neural Networks", "machine learning", "artificial intelligence",
               "deep learning", "neural networks", "single hidden layer network", "cascade forward networks",
-              "random projection", "FLANN", "feed-forward neural network", "artificial neural network",
+              "random projection", "CFN", "CFNN", "feed-forward neural network", "artificial neural network",
               "classification", "regression", "supervised learning", "online learning", "generalization",
-              "optimization algorithms", "Kernel MLP", "Cross-validation"
+              "optimization algorithms", "Kernel CFN", "Cross-validation"
               "Genetic algorithm (GA)", "Particle swarm optimization (PSO)", "Ant colony optimization (ACO)",
               "Differential evolution (DE)", "Simulated annealing", "Grey wolf optimizer (GWO)",
               "Whale Optimization Algorithm (WOA)", "confusion matrix", "recall", "precision", "accuracy",
@@ -33,7 +33,9 @@ setup(
               "Global optimization", "Convergence analysis", "Search space exploration", "Local search",
               "Computational intelligence", "Robust optimization", "metaheuristic", "metaheuristic algorithms",
               "nature-inspired computing", "nature-inspired algorithms", "swarm-based computation",
-              "metaheuristic-based multi-layer perceptron", "metaheuristic-optimized MLP",
+              "metaheuristic-based cascade forward neural networks", "metaheuristic-optimized CFN",
+              "derivative free-based cascade forward neural networks", "derivative free-optimized CFNN",
+              "gradient descent-based optimized cascade forward neural network", "GD-based CFNN",
               "Performance analysis", "Intelligent optimization", "Simulations"],
     url="https://github.com/thieu1995/deforce",
     project_urls={
@@ -70,8 +72,8 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Utilities",
     ],
-    install_requires=["numpy>=1.17.1", "scipy>=1.7.1", "scikit-learn>=1.0.2",
-                      "pandas>=1.3.5", "mealpy>=3.0.1", "permetrics>=1.5.0",
+    install_requires=["numpy>=1.17.1", "scipy>=1.8.1", "scikit-learn>=1.0.2",
+                      "pandas>=1.3.5", "mealpy>=3.0.1", "permetrics>=2.0.0",
                       "torch>=2.0.0", "skorch>=0.13.0"],
     extras_require={
         "dev": ["pytest>=7.0", "pytest-cov==4.0.0", "flake8>=4.0.1"],
