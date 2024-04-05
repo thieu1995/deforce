@@ -11,6 +11,7 @@ from sklearn.datasets import load_diabetes
 
 
 ## Load data object
+# total samples = 442, total features = 10
 X, y = load_diabetes(return_X_y=True)
 data = Data(X, y)
 
@@ -27,7 +28,7 @@ data.y_test = scaler_y.transform(np.reshape(data.y_test, (-1, 1)))
 
 ## Set up parameters for CFN
 params = {
-    "hidden_size": [10, 20],
+    "hidden_size": [15, 20, 25],
     "act1_name": ["elu", "tanh"], #  ['relu', 'sigmoid', 'hardsigmoid', 'tanh', 'elu', 'celu', 'selu', 'glu', 'gelu'],
     "act2_name": ["elu", "tanh"], #  ['relu', 'sigmoid', 'hardsigmoid', 'tanh', 'elu', 'celu', 'selu', 'glu', 'gelu'],
     "obj_name": ["MAE", "MSE"],
