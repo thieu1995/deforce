@@ -45,9 +45,9 @@ class CfnNumpy:
     def __init__(self, input_size=5, hidden_size=10, output_size=1, act1_name="tanh", act2_name="sigmoid"):
         # Initialize weights and biases for the input-hidden and hidden-output layers
         self.weights = {
-            'weights_ih': np.random.rand(input_size, hidden_size),
+            'weights_ih': np.ones(input_size, hidden_size),
             'biases_h': np.zeros((1, hidden_size)),
-            'weights_ioho': np.random.rand(input_size + hidden_size, output_size),
+            'weights_ioho': np.ones(input_size + hidden_size, output_size),
             'biases_o': np.zeros((1, output_size))
         }
         self.act1_func = getattr(activators, act1_name)
@@ -155,6 +155,9 @@ class BaseDfoCfn(BaseEstimator):
 
     verbose : bool, default=True
         Whether to print progress messages to stdout.
+
+    seed : int, default=None
+        Seed value to reproduce the results.
     """
     SUPPORTED_OPTIMIZERS = list(get_all_optimizers().keys())
     SUPPORTED_CLS_OBJECTIVES = get_all_classification_metrics()
@@ -168,8 +171,9 @@ class BaseDfoCfn(BaseEstimator):
     CLS_OBJ_LOSSES = None
 
     def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid",
-                 obj_name=None, optimizer="OriginalWOA", optimizer_paras=None, verbose=True):
+                 obj_name=None, optimizer="OriginalWOA", optimizer_paras=None, verbose=True, seed=None):
         super().__init__()
+        self.seed = seed
         self.hidden_size = validators.check_int("hidden_size", hidden_size, [2, 1000000])
         self.act1_name = validators.check_str("act1_name", act1_name, BaseDfoCfn.SUPPORTED_ACTIVATIONS)
         self.act2_name = validators.check_str("act2_name", act2_name, BaseDfoCfn.SUPPORTED_ACTIVATIONS)
@@ -244,7 +248,7 @@ class BaseDfoCfn(BaseEstimator):
             "save_population": save_population,
             "obj_weights": self.obj_weights
         }
-        self.optimizer.solve(problem)
+        self.optimizer.solve(problem, seed=self.seed)
         self.network.update_weights_from_solution(self.optimizer.g_best.solution)
         self.loss_train = self._get_history_loss(optimizer=self.optimizer)
         return self

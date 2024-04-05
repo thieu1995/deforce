@@ -49,7 +49,10 @@ class DfoCfnRegressor(BaseDfoCfn, RegressorMixin):
 
     verbose : bool, default=True
         Whether to print progress messages to stdout.
-    
+
+    seed : int, default=None
+        Seed value to reproduce the results.
+
     Examples
     --------
     >>> from deforce import DfoCfnRegressor, Data
@@ -61,16 +64,16 @@ class DfoCfnRegressor(BaseDfoCfn, RegressorMixin):
     >>> data.X_test_scaled = scaler.transform(data.X_test)
     >>> opt_paras = {"name": "GA", "epoch": 10, "pop_size": 30}
     >>> model = DfoCfnRegressor(hidden_size=15, act1_name="relu", act2_name="sigmoid",
-    >>>             obj_name="MSE", optimizer="BaseGA", optimizer_paras=opt_paras, verbose=True)
+    >>>             obj_name="MSE", optimizer="BaseGA", optimizer_paras=opt_paras, verbose=True, seed=42)
     >>> model.fit(data.X_train_scaled, data.y_train)
     >>> pred = model.predict(data.X_test_scaled)
     >>> print(pred)
     """
 
     def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid",
-                 obj_name="MSE", optimizer="OriginalWOA", optimizer_paras=None, verbose=True):
+                 obj_name="MSE", optimizer="OriginalWOA", optimizer_paras=None, verbose=True, seed=None):
         super().__init__(hidden_size=hidden_size, act1_name=act1_name, act2_name=act2_name,
-            obj_name=obj_name, optimizer=optimizer, optimizer_paras=optimizer_paras, verbose=verbose)
+            obj_name=obj_name, optimizer=optimizer, optimizer_paras=optimizer_paras, verbose=verbose, seed=seed)
 
     def create_network(self, X, y) -> Tuple[CfnNumpy, ObjectiveScaler]:
         """
@@ -222,7 +225,10 @@ class DfoCfnClassifier(BaseDfoCfn, ClassifierMixin):
 
     verbose : bool, default=True
         Whether to print progress messages to stdout.
-    
+
+    seed : int, default=None
+        Seed value to reproduce the results.
+
     Examples
     --------
     >>> from deforce import Data, DfoCfnClassifier
@@ -236,7 +242,7 @@ class DfoCfnClassifier(BaseDfoCfn, ClassifierMixin):
     >>> print(DfoCfnClassifier.SUPPORTED_CLS_OBJECTIVES)
     {'PS': 'max', 'NPV': 'max', 'RS': 'max', ...., 'KLDL': 'min', 'BSL': 'min'}
     >>> model = DfoCfnClassifier(hidden_size=50, act1_name="tanh", act2_name="sigmoid",
-    >>>             obj_name="NPV", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True)
+    >>>             obj_name="NPV", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True, seed=42)
     >>> model.fit(data.X_train_scaled, data.y_train)
     >>> pred = model.predict(data.X_test_scaled)
     >>> print(pred)
@@ -246,9 +252,9 @@ class DfoCfnClassifier(BaseDfoCfn, ClassifierMixin):
     CLS_OBJ_LOSSES = ["CEL", "HL", "KLDL", "BSL"]
 
     def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid",
-                 obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=None, verbose=True):
+                 obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=None, verbose=True, seed=None):
         super().__init__(hidden_size=hidden_size, act1_name=act1_name, act2_name=act2_name,
-            obj_name=obj_name, optimizer=optimizer, optimizer_paras=optimizer_paras, verbose=verbose)
+            obj_name=obj_name, optimizer=optimizer, optimizer_paras=optimizer_paras, verbose=verbose, seed=seed)
         self.return_prob = False
 
     def _check_y(self, y):
