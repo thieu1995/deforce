@@ -9,6 +9,7 @@ from sklearn.datasets import load_iris
 
 
 ## Load data object
+# total classes = 3, total samples = 150, total features = 4
 X, y = load_iris(return_X_y=True)
 data = Data(X, y)
 
@@ -26,8 +27,8 @@ data.y_test = scaler_y.transform(data.y_test)
 print(type(data.X_train), type(data.y_train))
 
 ## Create model
-model = CfnClassifier(hidden_size=25, act1_name="tanh", act2_name="softmax", obj_name="NLLL",
-                      max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=True)
+model = CfnClassifier(hidden_size=10, act1_name="relu", act2_name="softmax", obj_name="NLLL",
+                      max_epochs=500, batch_size=4, optimizer="SGD", optimizer_paras=None, verbose=True)
 
 ## Train the model
 model.fit(X=data.X_train, y=data.y_train)

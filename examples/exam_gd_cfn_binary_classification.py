@@ -9,6 +9,7 @@ from sklearn.datasets import load_breast_cancer
 
 
 ## Load data object
+# total classes = 2, total samples = 569, total features = 30
 X, y = load_breast_cancer(return_X_y=True)
 data = Data(X, y)
 
@@ -26,8 +27,8 @@ data.y_test = scaler_y.transform(data.y_test)
 print(type(data.X_train), type(data.y_train))
 
 ## Create model
-model = CfnClassifier(hidden_size=25, act1_name="tanh", act2_name="sigmoid", obj_name="BCEL",
-                      max_epochs=10, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=True)
+model = CfnClassifier(hidden_size=50, act1_name="relu", act2_name="sigmoid", obj_name="BCEL",
+                      max_epochs=500, batch_size=16, optimizer="SGD", optimizer_paras=None, verbose=True)
 
 ## Train the model
 model.fit(X=data.X_train, y=data.y_train)
