@@ -47,7 +47,7 @@ class CfnNumpy:
         self.weights = {
             'weights_ih': np.random.rand(input_size, hidden_size),
             'biases_h': np.zeros((1, hidden_size)),
-            'weights_ho': np.random.rand(hidden_size, output_size),
+            'weights_ioho': np.random.rand(input_size + hidden_size, output_size),
             'biases_o': np.zeros((1, output_size))
         }
         self.act1_func = getattr(activators, act1_name)
@@ -59,7 +59,8 @@ class CfnNumpy:
     def forward(self, inputs):
         # Forward pass through the network
         hidden = self.act1_func(np.dot(inputs, self.weights["weights_ih"]) + self.weights["biases_h"])
-        output = self.act2_func(np.dot(hidden, self.weights["weights_ho"]) + self.weights["biases_o"])
+        combined_output = np.concatenate((inputs, hidden), axis=1)
+        output = self.act2_func(np.dot(combined_output, self.weights["weights_ioho"]) + self.weights["biases_o"])
         return output
 
     def fit(self, X, y):
@@ -78,8 +79,6 @@ class CfnNumpy:
         self : object
             Returns a trained CFN model.
         """
-        # H = self.act_func(np.dot(X, self.weights["w1"]) + self.weights["b"])
-        # self.weights["w2"] = np.linalg.pinv(H) @ y
         return self
 
     def predict(self, X):
@@ -111,11 +110,11 @@ class CfnNumpy:
         # Set the weights of the CFN from a flattened array
         wih_size = self.weights['weights_ih'].size
         bh_size = self.weights['biases_h'].size
-        who_size = self.weights['weights_ho'].size
+        who_size = self.weights['weights_ioho'].size
         self.weights = {
             'weights_ih': solution[:wih_size].reshape(self.weights['weights_ih'].shape),
             'biases_h': solution[wih_size:wih_size + bh_size].reshape(self.weights['biases_h'].shape),
-            'weights_ho': solution[wih_size + bh_size:wih_size + bh_size + who_size].reshape(self.weights['weights_ho'].shape),
+            'weights_ioho': solution[wih_size + bh_size:wih_size + bh_size + who_size].reshape(self.weights['weights_ioho'].shape),
             'biases_o': solution[wih_size + bh_size + who_size:].reshape(self.weights['biases_o'].shape)
         }
 
