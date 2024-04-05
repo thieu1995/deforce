@@ -1,71 +1,5 @@
 
-<p align="center">
-<img style="width:100%;" src="https://thieu1995.github.io/post/2023-08/metaperceptron1.png" alt="deforce"/>
-</p>
-
-
-OptiCascade: Metaheuristic Optimization for Cascade Forward Neural Networks"
-"SwarmBoxNet: Black-Box Optimization for Cascade Forward Neural Networks"
-"HybridCascade: Integrating Metaheuristic Optimization into Cascade Forward Neural Networks"
-"NatureNetOpt: Nature-Inspired Algorithms for Optimizing Cascade Forward Neural Networks"
-"DerivoCascade: Derivative-Free Optimization for Cascade Forward Neural Networks"
-"SwarmSculpt: Swarm Intelligence-Based Optimization for Cascade Forward Neural Networks"
-"MetaNetForge: Metaheuristic Optimization Framework for Cascade Forward Neural Networks"
-"HybridSage: Hybrid Optimization Approaches for Cascade Forward Neural Networks"
-"CascadeBoxOpt: Black-Box Optimization Techniques for Cascade Forward Neural Networks"
-"EvoCascadeNet: Evolutionary Algorithms for Optimizing Cascade Forward Neural Networks"
-
-
-Integrating Derivative-Free Optimization into Cascade Forward Neural Networks
-
-defocfon: DErivative Free Optimization for Cascade FOrward Neural Networks. 
-
-deforce: DErivative Free Optimization foR Cascade forward nEural networks
-
-deforce: Derivative Free Optimization for Cascade Forward Neural Networks
-
-
-"NeuroOptiX: Illuminating Cascade Forward Neural Networks through Metaheuristic Optimization"
-"Cascadex: Unlocking the Potential of Metaheuristic Optimization in Cascade Forward Neural Networks"
-"OptiSynapse: Synaptic Optimization of Cascade Forward Neural Networks using Metaheuristics"
-"SwarmCascades: Unleashing Swarm Intelligence for Optimal Cascade Forward Neural Networks"
-"HeuroWave: Riding the Waves of Heuristics for Cascade Forward Neural Network Optimization"
-"CascadAI: Empowering Cascade Forward Neural Networks with AI-Driven Metaheuristic Optimization"
-"MetaNetCraft: Crafting Cascade Forward Neural Networks with Metaheuristic Optimization"
-"EvoCascadeX: Exploring Evolutionary Optimization for Enhanced Cascade Forward Neural Networks"
-"SynthSage: Sage-like Synthesis of Cascade Forward Neural Networks through Metaheuristic Optimization"
-"OptiNeuroForge: Forging Optimal Cascade Forward Neural Networks with Metaheuristic Alchemy"
-
-"Cascadence: Unleashing the Power of Metaheuristic Optimization in Cascade Forward Neural Networks"
-"NeuroFusion: A Hybrid Metaheuristic Approach for Optimizing Cascade Forward Neural Networks"
-"OptiWave: Riding the Wave of Optimization for Cascade Forward Neural Networks"
-"SwarmCascader: Swarm Intelligence Unleashed for Optimizing Cascade Forward Neural Networks"
-"EvoSculpNet: Sculpting Cascade Forward Neural Networks with Evolutionary Optimization"
-"HeuroBlend: Blending Metaheuristics for Efficient Optimization of Cascade Forward Neural Networks"
-"HybridSculpt: Sculpting Cascade Forward Neural Networks with Hybrid Metaheuristic Optimization"
-"SynthNetOpt: Synthesizing Optimal Cascade Forward Neural Networks through Nature-Inspired Optimization"
-"MetaCascada: Metaheuristic Optimization Unleashed for Cascade Forward Neural Networks"
-"SwarmGenius: Unleashing Swarm Intelligence for Optimal Cascade Forward Neural Networks"
-
-
-
-from deforce import DfoCfn 
-
-
-
-
-from defocfon import DfoCfn 
-
-derifon 
-
-DeFOCFoN
-
-DefoCascade 
-
-
- 
-defcon
-
+## deforce: Derivative-Free Algorithms for Optimizing Cascade Forward Neural Networks
 
 ---
 
@@ -86,18 +20,15 @@ defcon
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
-deforce (Metaheuristic-optimized Multi-Layer Perceptron) is a Python library that implements variants and the 
-traditional version of Multi-Layer Perceptron models. These include Metaheuristic-optimized MLP models (GA, PSO, WOA, TLO, DE, ...) 
-and Gradient Descent-optimized MLP models (SGD, Adam, Adelta, Adagrad, ...). It provides a comprehensive list of 
-optimizers for training MLP models and is also compatible with the Scikit-Learn library. With deforce, 
+deforce (DErivative Free Optimization foR Cascade forward nEural networks) is a Python library that implements variants and the traditional version of Cascade Forward Neural Networks. These include Derivative Free-optimized MLP models (such as GA, PSO, WOA, TLO, DE, ...) and Gradient Descent-optimized MLP models (such as SGD, Adam, Adelta, Adagrad, ...). It provides a comprehensive list of optimizers for training MLP models and is also compatible with the Scikit-Learn library. With deforce, 
 you can perform searches and hyperparameter tuning using the features provided by the Scikit-Learn library.
 
 * **Free software:** GNU General Public License (GPL) V3 license
 * **Provided Estimator**: CfnRegressor, CfnClassifier, DfoCfnRegressor, DfoCfnClassifier
-* **Total Metaheuristic-based MLP Regressor**: > 200 Models 
-* **Total Metaheuristic-based MLP Classifier**: > 200 Models
-* **Total Gradient Descent-based MLP Regressor**: 12 Models
-* **Total Gradient Descent-based MLP Classifier**: 12 Models
+* **Total DFO-based MLP Regressor**: > 200 Models 
+* **Total DFO-based MLP Classifier**: > 200 Models
+* **Total GD-based MLP Regressor**: 12 Models
+* **Total GD-based MLP Classifier**: 12 Models
 * **Supported performance metrics**: >= 67 (47 regressions and 20 classifications)
 * **Supported objective functions (as fitness functions or loss functions)**: >= 67 (47 regressions and 20 classifications)
 * **Documentation:** https://deforce.readthedocs.io
@@ -107,9 +38,9 @@ you can perform searches and hyperparameter tuning using the features provided b
 
 # Citation Request 
 
-If you want to understand how Metaheuristic is applied to Multi-Layer Perceptron, you need to read the paper 
-titled **"Let a biogeography-based optimizer train your Multi-Layer Perceptron"**. 
-The paper can be accessed at the following [link](https://doi.org/10.1016/j.ins.2014.01.038)
+If you want to understand how Metaheuristic is applied to CFNN, you need to read the paper 
+titled **"Optimization of neural-network model using a meta-heuristic algorithm for the estimation of dynamic Poisson’s ratio of selected rock types"**. 
+The paper can be accessed at the following [link](https://doi.org/10.1038%2Fs41598-023-38163-0)
 
 
 Please include these citations if you plan to use this library:
