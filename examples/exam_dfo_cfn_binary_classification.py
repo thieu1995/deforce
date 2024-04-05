@@ -9,6 +9,7 @@ from sklearn.datasets import load_breast_cancer
 
 
 ## Load data object
+# total classes = 2, total samples = 569, total features = 30
 X, y = load_breast_cancer(return_X_y=True)
 data = Data(X, y)
 
@@ -26,7 +27,7 @@ data.y_test = scaler_y.transform(data.y_test)
 ## Create model
 opt_paras = {"name": "WOA", "epoch": 100, "pop_size": 30}
 print(DfoCfnClassifier.SUPPORTED_CLS_OBJECTIVES)
-model = DfoCfnClassifier(hidden_size=50, act1_name="tanh", act2_name="sigmoid",
+model = DfoCfnClassifier(hidden_size=20, act1_name="tanh", act2_name="sigmoid",
                  obj_name="NPV", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True)
 
 ## Train the model

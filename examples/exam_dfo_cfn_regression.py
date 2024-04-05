@@ -10,6 +10,7 @@ from sklearn.datasets import load_diabetes
 
 
 ## Load data object
+# total samples = 442, total features = 10
 X, y = load_diabetes(return_X_y=True)
 data = Data(X, y)
 
@@ -26,7 +27,7 @@ data.y_test = scaler_y.transform(np.reshape(data.y_test, (-1, 1)))
 
 ## Create model
 opt_paras = {"name": "WOA", "epoch": 250, "pop_size": 30}
-model = DfoCfnRegressor(hidden_size=15, act1_name="relu", act2_name="sigmoid",
+model = DfoCfnRegressor(hidden_size=10, act1_name="tanh", act2_name="sigmoid",
                         obj_name="MSE", optimizer="BaseGA", optimizer_paras=None, verbose=True)
 
 ## Train the model

@@ -9,6 +9,7 @@ from sklearn.datasets import load_iris
 
 
 ## Load data object
+# total classes = 3, total samples = 150, total features = 4
 X, y = load_iris(return_X_y=True)
 data = Data(X, y)
 
@@ -24,12 +25,12 @@ data.y_train, scaler_y = data.encode_label(data.y_train)
 data.y_test = scaler_y.transform(data.y_test)
 
 ## Create model
-opt_paras = {"name": "WOA", "epoch": 100, "pop_size": 20}
-model = DfoCfnClassifier(hidden_size=50, act1_name="tanh", act2_name="softmax",
+opt_paras = {"name": "WOA", "epoch": 500, "pop_size": 20}
+model = DfoCfnClassifier(hidden_size=15, act1_name="elu", act2_name="softmax",
                  obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=None, verbose=True)
 
 ## Train the model
-model.fit(X=data.X_train, y=data.y_train, lb=-1., ub=1.0)
+model.fit(X=data.X_train, y=data.y_train, lb=-10., ub=10.0)
 
 ## Test the model
 y_pred = model.predict(data.X_test, return_prob=True)
