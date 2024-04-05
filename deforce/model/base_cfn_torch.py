@@ -18,7 +18,7 @@ from deforce.toolkit.metrics import get_all_classification_metrics, get_all_regr
 
 class CfnTorch(nn.Module):
     """
-    Define the MLP model
+    Define the CFN model
     """
     SUPPORTED_ACTIVATIONS = ['none', 'threshold', 'relu', 'rrelu', 'hardtanh', 'relu6', 'sigmoid',
                              'hardsigmoid', 'tanh', 'silu', 'mish', 'hardswish', 'elu', 'celu',
@@ -53,12 +53,12 @@ class CfnTorch(nn.Module):
 
 class BaseCfnTorch(BaseEstimator):
     """
-    Defines the most general class for traditional MLP models that inherits the BaseEstimator class of Scikit-Learn library.
+    Defines the most general class for traditional CFN models that inherits the BaseEstimator class of Scikit-Learn library.
 
     Parameters
     ----------
     hidden_size : int, default=50
-        The hidden size of MLP network (This network only has single hidden layer).
+        The hidden size of CFN network (This network only has single hidden layer).
 
     act1_name : str, defeault="tanh"
         This is activation for hidden layer. The supported activation are: {"none", "relu",
@@ -106,13 +106,13 @@ class BaseCfnTorch(BaseEstimator):
                  max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False):
         super().__init__()
         self.module = CfnTorch
-        self.hidden_size = validator.check_int("hidden_size", hidden_size, [2, 1000000])
-        self.act1_name = validator.check_str("act1_name", act1_name, CfnTorch.SUPPORTED_ACTIVATIONS)
-        self.act2_name = validator.check_str("act2_name", act2_name, CfnTorch.SUPPORTED_ACTIVATIONS)
-        self.obj_name = validator.check_str("obj_name", obj_name, list(self.SUPPORTED_LOSSES.keys()))
-        self.max_epochs = validator.check_int("max_epochs", max_epochs, [1, 1000000])
+        self.hidden_size = validators.check_int("hidden_size", hidden_size, [2, 1000000])
+        self.act1_name = validators.check_str("act1_name", act1_name, CfnTorch.SUPPORTED_ACTIVATIONS)
+        self.act2_name = validators.check_str("act2_name", act2_name, CfnTorch.SUPPORTED_ACTIVATIONS)
+        self.obj_name = validators.check_str("obj_name", obj_name, list(self.SUPPORTED_LOSSES.keys()))
+        self.max_epochs = validators.check_int("max_epochs", max_epochs, [1, 1000000])
         self.batch_size = batch_size
-        self.optimizer = validator.check_str("optimizer", optimizer, self.SUPPORTED_OPTIMIZERS)
+        self.optimizer = validators.check_str("optimizer", optimizer, self.SUPPORTED_OPTIMIZERS)
         self.optimizer_paras = {} if optimizer_paras is None else optimizer_paras
         self.verbose = verbose
 
@@ -123,7 +123,7 @@ class BaseCfnTorch(BaseEstimator):
     @staticmethod
     def _check_method(method=None, list_supported_methods=None):
         if type(method) is str:
-            return validator.check_str("method", method, list_supported_methods)
+            return validators.check_str("method", method, list_supported_methods)
         else:
             raise ValueError(f"method should be a string and belongs to {list_supported_methods}")
 
@@ -135,7 +135,7 @@ class BaseCfnTorch(BaseEstimator):
 
     def predict(self, X, return_prob=False):
         """
-        Inherit the predict function from BaseMlp class, with 1 more parameter `return_prob`.
+        Inherit the predict function from BaseCFN class, with 1 more parameter `return_prob`.
 
         Parameters
         ----------

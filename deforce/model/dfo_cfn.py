@@ -15,7 +15,7 @@ from deforce.toolkit.scalers import ObjectiveScaler
 
 class DfoCfnRegressor(BaseDfoCfn, RegressorMixin):
     """
-    Defines the general class of Metaheuristic-based MLP model for Regression problems that inherit the BaseDfoCfn and RegressorMixin classes.
+    Defines the general class of Metaheuristic-based CFN model for Regression problems that inherit the BaseDfoCfn and RegressorMixin classes.
 
     Parameters
     ----------
@@ -76,7 +76,7 @@ class DfoCfnRegressor(BaseDfoCfn, RegressorMixin):
         """
         Returns
         -------
-            network: MLP, an instance of MLP network
+            network: CFN, an instance of CFN network
             obj_scaler: ObjectiveScaler, the objective scaler that used to scale output
         """
         if type(y) in (list, tuple, np.ndarray):
@@ -140,7 +140,7 @@ class DfoCfnRegressor(BaseDfoCfn, RegressorMixin):
         result : float
             The result of selected metric
         """
-        return self._BaseMhaMlp__score_reg(X, y, method)
+        return self._BaseMhaCFN__score_reg(X, y, method)
 
     def scores(self, X, y, list_methods=("MSE", "MAE")):
         """Return the list of metrics of the prediction.
@@ -162,7 +162,7 @@ class DfoCfnRegressor(BaseDfoCfn, RegressorMixin):
         results : dict
             The results of the list metrics
         """
-        return self._BaseMhaMlp__scores_reg(X, y, list_methods)
+        return self._BaseMhaCFN__scores_reg(X, y, list_methods)
 
     def evaluate(self, y_true, y_pred, list_metrics=("MSE", "MAE")):
         """Return the list of performance metrics of the prediction.
@@ -183,12 +183,12 @@ class DfoCfnRegressor(BaseDfoCfn, RegressorMixin):
         results : dict
             The results of the list metrics
         """
-        return self._BaseMhaMlp__evaluate_reg(y_true, y_pred, list_metrics)
+        return self._BaseMhaCFN__evaluate_reg(y_true, y_pred, list_metrics)
 
 
 class DfoCfnClassifier(BaseDfoCfn, ClassifierMixin):
     """
-    Defines the general class of Metaheuristic-based MLP model for Classification problems that inherit the BaseDfoCfn and ClassifierMixin classes.
+    Defines the general class of Metaheuristic-based CFN model for Classification problems that inherit the BaseDfoCfn and ClassifierMixin classes.
 
     Parameters
     ----------
@@ -313,7 +313,7 @@ class DfoCfnClassifier(BaseDfoCfn, ClassifierMixin):
         result : float
             The result of selected metric
         """
-        return self._BaseMhaMlp__score_cls(X, y, method)
+        return self._BaseMhaCFN__score_cls(X, y, method)
 
     def scores(self, X, y, list_methods=("AS", "RS")):
         """
@@ -338,7 +338,7 @@ class DfoCfnClassifier(BaseDfoCfn, ClassifierMixin):
         results : dict
             The results of the list metrics
         """
-        return self._BaseMhaMlp__scores_cls(X, y, list_methods)
+        return self._BaseMhaCFN__scores_cls(X, y, list_methods)
 
     def evaluate(self, y_true, y_pred, list_metrics=("AS", "RS")):
         """
@@ -360,4 +360,4 @@ class DfoCfnClassifier(BaseDfoCfn, ClassifierMixin):
         results : dict
             The results of the list metrics
         """
-        return self._BaseMhaMlp__evaluate_cls(y_true, y_pred, list_metrics)
+        return self._BaseMhaCFN__evaluate_cls(y_true, y_pred, list_metrics)

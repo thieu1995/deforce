@@ -16,7 +16,7 @@ from deforce.toolkit.metrics import get_all_regression_metrics, get_all_classifi
 
 
 class CfnNumpy:
-    """This class defines the general Multi-Layer Perceptron (MLP) model using Numpy
+    """This class defines the general Cascade Forward Neural Networks (CFN) model using Numpy
 
     Parameters
     ----------
@@ -50,8 +50,8 @@ class CfnNumpy:
             'weights_ho': np.random.rand(hidden_size, output_size),
             'biases_o': np.zeros((1, output_size))
         }
-        self.act1_func = getattr(act_util, act1_name)
-        self.act2_func = getattr(act_util, act2_name)
+        self.act1_func = getattr(activators, act1_name)
+        self.act2_func = getattr(activators, act2_name)
         self.input_size = input_size
         self.hidden_size = hidden_size
         self.output_size = output_size
@@ -76,7 +76,7 @@ class CfnNumpy:
         Returns
         -------
         self : object
-            Returns a trained MLP model.
+            Returns a trained CFN model.
         """
         # H = self.act_func(np.dot(X, self.weights["w1"]) + self.weights["b"])
         # self.weights["w2"] = np.linalg.pinv(H) @ y
@@ -108,7 +108,7 @@ class CfnNumpy:
         return np.sum([layer.size for layer in self.weights.values()])
 
     def update_weights_from_solution(self, solution):
-        # Set the weights of the MLP from a flattened array
+        # Set the weights of the CFN from a flattened array
         wih_size = self.weights['weights_ih'].size
         bh_size = self.weights['biases_h'].size
         who_size = self.weights['weights_ho'].size
@@ -122,7 +122,7 @@ class CfnNumpy:
 
 class BaseDfoCfn(BaseEstimator):
     """
-    Defines the most general class for Metaheuristic-based MLP model that inherits the BaseMlpNumpy class
+    Defines the most general class for DFO-based CFN model that inherits the BaseCfnNumpy class
 
     Parameters
     ----------
@@ -171,9 +171,9 @@ class BaseDfoCfn(BaseEstimator):
     def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid",
                  obj_name=None, optimizer="OriginalWOA", optimizer_paras=None, verbose=True):
         super().__init__()
-        self.hidden_size = validator.check_int("hidden_size", hidden_size, [2, 1000000])
-        self.act1_name = validator.check_str("act1_name", act1_name, BaseDfoCfn.SUPPORTED_ACTIVATIONS)
-        self.act2_name = validator.check_str("act2_name", act2_name, BaseDfoCfn.SUPPORTED_ACTIVATIONS)
+        self.hidden_size = validators.check_int("hidden_size", hidden_size, [2, 1000000])
+        self.act1_name = validators.check_str("act1_name", act1_name, BaseDfoCfn.SUPPORTED_ACTIVATIONS)
+        self.act2_name = validators.check_str("act2_name", act2_name, BaseDfoCfn.SUPPORTED_ACTIVATIONS)
         self.obj_name = obj_name
         self.optimizer_paras = {} if optimizer_paras is None else optimizer_paras
         self.optimizer = self._set_optimizer(optimizer, optimizer_paras)
@@ -253,7 +253,7 @@ class BaseDfoCfn(BaseEstimator):
     @staticmethod
     def _check_method(method=None, list_supported_methods=None):
         if type(method) is str:
-            return validator.check_str("method", method, list_supported_methods)
+            return validators.check_str("method", method, list_supported_methods)
         else:
             raise ValueError(f"method should be a string and belongs to {list_supported_methods}")
 
@@ -262,7 +262,7 @@ class BaseDfoCfn(BaseEstimator):
 
     def predict(self, X, return_prob=False):
         """
-        Inherit the predict function from BaseMlpNumpy class, with 1 more parameter `return_prob`.
+        Inherit the predict function from BaseCFNNumpy class, with 1 more parameter `return_prob`.
 
         Parameters
         ----------

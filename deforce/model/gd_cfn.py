@@ -15,12 +15,12 @@ from deforce.toolkit.scalers import ObjectiveScaler
 
 class CfnRegressor(BaseCfnTorch):
     """
-    Defines the class for traditional MLP network for Regression problems that inherit the BaseCfnTorch and RegressorMixin classes.
+    Defines the class for traditional CFN network for Regression problems that inherit the BaseCfnTorch and RegressorMixin classes.
 
     Parameters
     ----------
     hidden_size : int, default=50
-        The hidden size of MLP network (This network only has single hidden layer).
+        The hidden size of CFN network (This network only has single hidden layer).
 
     act1_name : str, defeault="tanh"
         This is activation for hidden layer. The supported activation are: {"none", "relu",
@@ -94,7 +94,7 @@ class CfnRegressor(BaseCfnTorch):
         """
         Returns
         -------
-            network: MLP, an instance of MLP network
+            network: CFN, an instance of CFN network
             obj_scaler: ObjectiveScaler, the objective scaler that used to scale output
         """
         if type(y) in (list, tuple, np.ndarray):
@@ -156,7 +156,7 @@ class CfnRegressor(BaseCfnTorch):
             The result of selected metric
         """
         X = torch.tensor(X, dtype=torch.float32)
-        return self._BaseMlpTorch__score_reg(X, y, method)
+        return self._BaseCFNTorch__score_reg(X, y, method)
 
     def scores(self, X, y, list_methods=("MSE", "MAE")):
         """Return the list of metrics of the prediction.
@@ -179,7 +179,7 @@ class CfnRegressor(BaseCfnTorch):
             The results of the list metrics
         """
         X = torch.tensor(X, dtype=torch.float32)
-        return self._BaseMlpTorch__scores_reg(X, y, list_methods)
+        return self._BaseCFNTorch__scores_reg(X, y, list_methods)
 
     def evaluate(self, y_true, y_pred, list_metrics=("MSE", "MAE")):
         """Return the list of performance metrics of the prediction.
@@ -200,17 +200,17 @@ class CfnRegressor(BaseCfnTorch):
         results : dict
             The results of the list metrics
         """
-        return self._BaseMlpTorch__evaluate_reg(y_true, y_pred, list_metrics)
+        return self._BaseCFNTorch__evaluate_reg(y_true, y_pred, list_metrics)
 
 
 class CfnClassifier(BaseCfnTorch):
     """
-    Defines the class for traditional MLP network for Classification problems that inherit the BaseCfnTorch class
+    Defines the class for traditional CFN network for Classification problems that inherit the BaseCfnTorch class
 
     Parameters
     ----------
     hidden_size : int, default=50
-        The hidden size of MLP network (This network only has single hidden layer).
+        The hidden size of CFN network (This network only has single hidden layer).
 
     act1_name : str, defeault="tanh"
         This is activation for hidden layer. The supported activation are: {"none", "relu",
@@ -292,7 +292,7 @@ class CfnClassifier(BaseCfnTorch):
         """
         Returns
         -------
-            network: MLP, an instance of MLP network
+            network: CFN, an instance of CFN network
             obj_scaler: ObjectiveScaler, the objective scaler that used to scale output
         """
         if type(y) in (list, tuple, np.ndarray):
@@ -378,7 +378,7 @@ class CfnClassifier(BaseCfnTorch):
         result : float
             The result of selected metric
         """
-        return self._BaseMlpTorch__score_cls(X, y, method)
+        return self._BaseCFNTorch__score_cls(X, y, method)
 
     def scores(self, X, y, list_methods=("AS", "RS")):
         """
@@ -403,7 +403,7 @@ class CfnClassifier(BaseCfnTorch):
         results : dict
             The results of the list metrics
         """
-        return self._BaseMlpTorch__scores_cls(X, y, list_methods)
+        return self._BaseCFNTorch__scores_cls(X, y, list_methods)
 
     def evaluate(self, y_true, y_pred, list_metrics=("AS", "RS")):
         """
@@ -425,4 +425,4 @@ class CfnClassifier(BaseCfnTorch):
         results : dict
             The results of the list metrics
         """
-        return self._BaseMlpTorch__evaluate_cls(y_true, y_pred, list_metrics)
+        return self._BaseCFNTorch__evaluate_cls(y_true, y_pred, list_metrics)
