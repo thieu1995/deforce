@@ -6,6 +6,6 @@
 
 __version__ = "0.0.1"
 
-from deforce.helpers.preprocessor import Data, DataTransformer
-from deforce.core.traditional_cfn import CfnRegressor, CfnClassifier
-from deforce.core.dfo_cfn import DfoCfnRegressor, DfoCfnClassifier
+from deforce.toolkit.preprocessor import Data, DataTransformer
+from deforce.model.gd_cfn import CfnRegressor, CfnClassifier
+from deforce.model.dfo_cfn import DfoCfnRegressor, DfoCfnClassifier

@@ -18,7 +18,7 @@ setup(
     version="0.0.1",
     author="Thieu",
     author_email="nguyenthieu2102@gmail.com",
-    description="deforce: Unleashing the Power of Metaheuristic-optimized Multi-Layer Perceptron - A Python Library",
+    description="deforce: Derivative-Free Algorithms for Optimizing Cascade Forward Neural Networks",
     long_description=readme(),
     long_description_content_type="text/markdown",
     keywords=["Cascade Forward Neural Networks", "machine learning", "artificial intelligence",
