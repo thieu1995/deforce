@@ -4,6 +4,69 @@
 </p>
 
 
+OptiCascade: Metaheuristic Optimization for Cascade Forward Neural Networks"
+"SwarmBoxNet: Black-Box Optimization for Cascade Forward Neural Networks"
+"HybridCascade: Integrating Metaheuristic Optimization into Cascade Forward Neural Networks"
+"NatureNetOpt: Nature-Inspired Algorithms for Optimizing Cascade Forward Neural Networks"
+"DerivoCascade: Derivative-Free Optimization for Cascade Forward Neural Networks"
+"SwarmSculpt: Swarm Intelligence-Based Optimization for Cascade Forward Neural Networks"
+"MetaNetForge: Metaheuristic Optimization Framework for Cascade Forward Neural Networks"
+"HybridSage: Hybrid Optimization Approaches for Cascade Forward Neural Networks"
+"CascadeBoxOpt: Black-Box Optimization Techniques for Cascade Forward Neural Networks"
+"EvoCascadeNet: Evolutionary Algorithms for Optimizing Cascade Forward Neural Networks"
+
+
+Integrating Derivative-Free Optimization into Cascade Forward Neural Networks
+
+defocfon: DErivative Free Optimization for Cascade FOrward Neural Networks. 
+
+deforce: DErivative Free Optimization foR Cascade forward nEural networks
+
+deforce: Derivative Free Optimization for Cascade Forward Neural Networks
+
+
+"NeuroOptiX: Illuminating Cascade Forward Neural Networks through Metaheuristic Optimization"
+"Cascadex: Unlocking the Potential of Metaheuristic Optimization in Cascade Forward Neural Networks"
+"OptiSynapse: Synaptic Optimization of Cascade Forward Neural Networks using Metaheuristics"
+"SwarmCascades: Unleashing Swarm Intelligence for Optimal Cascade Forward Neural Networks"
+"HeuroWave: Riding the Waves of Heuristics for Cascade Forward Neural Network Optimization"
+"CascadAI: Empowering Cascade Forward Neural Networks with AI-Driven Metaheuristic Optimization"
+"MetaNetCraft: Crafting Cascade Forward Neural Networks with Metaheuristic Optimization"
+"EvoCascadeX: Exploring Evolutionary Optimization for Enhanced Cascade Forward Neural Networks"
+"SynthSage: Sage-like Synthesis of Cascade Forward Neural Networks through Metaheuristic Optimization"
+"OptiNeuroForge: Forging Optimal Cascade Forward Neural Networks with Metaheuristic Alchemy"
+
+"Cascadence: Unleashing the Power of Metaheuristic Optimization in Cascade Forward Neural Networks"
+"NeuroFusion: A Hybrid Metaheuristic Approach for Optimizing Cascade Forward Neural Networks"
+"OptiWave: Riding the Wave of Optimization for Cascade Forward Neural Networks"
+"SwarmCascader: Swarm Intelligence Unleashed for Optimizing Cascade Forward Neural Networks"
+"EvoSculpNet: Sculpting Cascade Forward Neural Networks with Evolutionary Optimization"
+"HeuroBlend: Blending Metaheuristics for Efficient Optimization of Cascade Forward Neural Networks"
+"HybridSculpt: Sculpting Cascade Forward Neural Networks with Hybrid Metaheuristic Optimization"
+"SynthNetOpt: Synthesizing Optimal Cascade Forward Neural Networks through Nature-Inspired Optimization"
+"MetaCascada: Metaheuristic Optimization Unleashed for Cascade Forward Neural Networks"
+"SwarmGenius: Unleashing Swarm Intelligence for Optimal Cascade Forward Neural Networks"
+
+
+
+from deforce import DfoCfn 
+
+
+
+
+from defocfon import DfoCfn 
+
+derifon 
+
+DeFOCFoN
+
+DefoCascade 
+
+
+ 
+defcon
+
+
 ---
 
 [![GitHub release](https://img.shields.io/badge/release-0.0.1-yellow.svg)](https://github.com/thieu1995/deforce/releases)
