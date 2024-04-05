@@ -53,6 +53,9 @@ class CfnRegressor(BaseCfnTorch):
     verbose : bool, default=True
         Whether to print progress messages to stdout.
 
+    seed : int, default=None
+        Seed value to reproduce the results.
+
     Examples
     --------
     >>> from deforce import CfnRegressor, Data
@@ -69,7 +72,7 @@ class CfnRegressor(BaseCfnTorch):
     >>> data.X_test = scaler.transform(data.X_test)
     >>> ## Create model
     >>> model = CfnRegressor(hidden_size=25, act1_name="tanh", act2_name="sigmoid", obj_name="MSE",
-    >>>             max_epochs=10, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=True)
+    >>>             max_epochs=10, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=True, seed=42)
     >>> ## Train the model
     >>> model.fit(data.X_train, data.y_train)
     >>> ## Test the model
@@ -84,10 +87,12 @@ class CfnRegressor(BaseCfnTorch):
         "MAE": torch.nn.L1Loss, "MSE": torch.nn.MSELoss
     }
 
-    def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid", obj_name="MSE",
-                 max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False, **kwargs):
-        super().__init__(hidden_size=hidden_size, act1_name=act1_name, act2_name=act2_name, obj_name=obj_name,
-                 max_epochs=max_epochs, batch_size=batch_size, optimizer=optimizer, optimizer_paras=optimizer_paras, verbose=verbose)
+    def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid",
+                 obj_name="MSE", max_epochs=1000, batch_size=32, optimizer="SGD",
+                 optimizer_paras=None, verbose=False, seed=None, **kwargs):
+        super().__init__(hidden_size=hidden_size, act1_name=act1_name, act2_name=act2_name,
+                         obj_name=obj_name, max_epochs=max_epochs, batch_size=batch_size,
+                         optimizer=optimizer, optimizer_paras=optimizer_paras, verbose=verbose, seed=seed)
         self.kwargs = kwargs
 
     def create_network(self, X, y):
@@ -243,6 +248,9 @@ class CfnClassifier(BaseCfnTorch):
     verbose : bool, default=True
         Whether to print progress messages to stdout.
 
+    seed : int, default=None
+        Seed value to reproduce the results.
+
     Examples
     --------
     >>> from deforce import CfnClassifier, Data
@@ -259,7 +267,7 @@ class CfnClassifier(BaseCfnTorch):
     >>> data.X_test = scaler.transform(data.X_test)
     >>> ## Create model
     >>> model = CfnClassifier(hidden_size=25, act1_name="tanh", act2_name="sigmoid", obj_name="BCEL",
-    >>>                 max_epochs=10, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=True)
+    >>>                 max_epochs=10, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=True, seed=42)
     >>> ## Train the model
     >>> model.fit(data.X_train, data.y_train)
     >>> ## Test the model
@@ -281,10 +289,12 @@ class CfnClassifier(BaseCfnTorch):
     CLS_OBJ_BINARY_2 = ["NLLL"]
     CLS_OBJ_MULTI = ["NLLL", "CEL"]
 
-    def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid", obj_name="NLLL",
-                 max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False, **kwargs):
-        super().__init__(hidden_size=hidden_size, act1_name=act1_name, act2_name=act2_name, obj_name=obj_name,
-                 max_epochs=max_epochs, batch_size=batch_size, optimizer=optimizer, optimizer_paras=optimizer_paras, verbose=verbose)
+    def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid",
+                 obj_name="NLLL", max_epochs=1000, batch_size=32, optimizer="SGD",
+                 optimizer_paras=None, verbose=False, seed=None, **kwargs):
+        super().__init__(hidden_size=hidden_size, act1_name=act1_name, act2_name=act2_name,
+                         obj_name=obj_name, max_epochs=max_epochs, batch_size=batch_size,
+                         optimizer=optimizer, optimizer_paras=optimizer_paras, verbose=verbose, seed=seed)
         self.kwargs = kwargs
         self.is_binary = True
 

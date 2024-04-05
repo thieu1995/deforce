@@ -91,6 +91,9 @@ class BaseCfnTorch(BaseEstimator):
 
     verbose : bool, default=True
         Whether to print progress messages to stdout.
+
+    seed : int, default=None
+        Seed value to reproduce the results.
     """
 
     SUPPORTED_CLS_METRICS = get_all_classification_metrics()
@@ -104,8 +107,10 @@ class BaseCfnTorch(BaseEstimator):
                             "LBFGS", "NAdam", "RAdam", "RMSprop", "Rprop", "SGD"]
 
     def __init__(self, hidden_size=50, act1_name="tanh", act2_name="sigmoid", obj_name=None,
-                 max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False):
+                 max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False, seed=None):
         super().__init__()
+        if seed is not None:
+            torch.manual_seed(seed)
         self.module = CfnTorch
         self.hidden_size = validators.check_int("hidden_size", hidden_size, [2, 1000000])
         self.act1_name = validators.check_str("act1_name", act1_name, CfnTorch.SUPPORTED_ACTIVATIONS)
