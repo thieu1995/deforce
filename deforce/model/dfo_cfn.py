@@ -10,7 +10,7 @@ from permetrics import RegressionMetric, ClassificationMetric
 from sklearn.base import ClassifierMixin, RegressorMixin
 from sklearn.preprocessing import OneHotEncoder
 from deforce.core.base_cfn_numpy import BaseDfoCfn, CfnNumpy
-from deforce.helpers.scaler_util import ObjectiveScaler
+from deforce.toolkit.scaler_util import ObjectiveScaler
 
 
 class DfoCfnRegressor(BaseDfoCfn, RegressorMixin):

@@ -9,8 +9,8 @@ import numpy as np
 import torch
 from sklearn.preprocessing import OneHotEncoder
 from skorch import NeuralNetRegressor, NeuralNetClassifier
-from deforce.core.base_cfn_torch import BaseCfnTorch, CfnTorch
-from deforce.helpers.scaler_util import ObjectiveScaler
+from deforce.model.base_cfn_torch import BaseCfnTorch, CfnTorch
+from deforce.toolkit.scalers import ObjectiveScaler
 
 
 class CfnRegressor(BaseCfnTorch):
