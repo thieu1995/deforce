@@ -9,9 +9,7 @@ scripts/
 wow.py
 
 tests/
-examples/
 
-examples/helpers/history/
 deforce/data/
 # Pycharm
 .idea/
