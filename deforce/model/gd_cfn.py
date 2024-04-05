@@ -156,7 +156,7 @@ class CfnRegressor(BaseCfnTorch):
             The result of selected metric
         """
         X = torch.tensor(X, dtype=torch.float32)
-        return self._BaseCFNTorch__score_reg(X, y, method)
+        return self._BaseCfnTorch__score_reg(X, y, method)
 
     def scores(self, X, y, list_methods=("MSE", "MAE")):
         """Return the list of metrics of the prediction.
@@ -179,7 +179,7 @@ class CfnRegressor(BaseCfnTorch):
             The results of the list metrics
         """
         X = torch.tensor(X, dtype=torch.float32)
-        return self._BaseCFNTorch__scores_reg(X, y, list_methods)
+        return self._BaseCfnTorch__scores_reg(X, y, list_methods)
 
     def evaluate(self, y_true, y_pred, list_metrics=("MSE", "MAE")):
         """Return the list of performance metrics of the prediction.
@@ -200,7 +200,7 @@ class CfnRegressor(BaseCfnTorch):
         results : dict
             The results of the list metrics
         """
-        return self._BaseCFNTorch__evaluate_reg(y_true, y_pred, list_metrics)
+        return self._BaseCfnTorch__evaluate_reg(y_true, y_pred, list_metrics)
 
 
 class CfnClassifier(BaseCfnTorch):
@@ -378,7 +378,7 @@ class CfnClassifier(BaseCfnTorch):
         result : float
             The result of selected metric
         """
-        return self._BaseCFNTorch__score_cls(X, y, method)
+        return self._BaseCfnTorch__score_cls(X, y, method)
 
     def scores(self, X, y, list_methods=("AS", "RS")):
         """
@@ -403,7 +403,7 @@ class CfnClassifier(BaseCfnTorch):
         results : dict
             The results of the list metrics
         """
-        return self._BaseCFNTorch__scores_cls(X, y, list_methods)
+        return self._BaseCfnTorch__scores_cls(X, y, list_methods)
 
     def evaluate(self, y_true, y_pred, list_metrics=("AS", "RS")):
         """
@@ -425,4 +425,4 @@ class CfnClassifier(BaseCfnTorch):
         results : dict
             The results of the list metrics
         """
-        return self._BaseCFNTorch__evaluate_cls(y_true, y_pred, list_metrics)
+        return self._BaseCfnTorch__evaluate_cls(y_true, y_pred, list_metrics)

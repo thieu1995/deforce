@@ -28,8 +28,8 @@ class CfnTorch(nn.Module):
 
     def __init__(self, input_size, hidden_size, output_size, act1_name="tanh", act2_name="sigmoid"):
         super(CfnTorch, self).__init__()
-        self.fc1 = nn.Linear(input_size, hidden_size, bias=True)
-        self.fc2 = nn.Linear(hidden_size, output_size, bias=True)
+        self.hidden = nn.Linear(input_size, hidden_size, bias=True)
+        self.output = nn.Linear(input_size + hidden_size, output_size, bias=True)
         self.act1_func = self.__get_act(act1_name)
         self.act2_func = self.__get_act(act2_name)
 
@@ -43,12 +43,20 @@ class CfnTorch(nn.Module):
         return act_func
 
     def forward(self, x):
-        x = x.clone().detach()  # torch.tensor(x, dtype=torch.float32)
-        x = self.fc1(x)
-        x = self.act1_func(x)
-        x = self.fc2(x)
-        x = self.act2_func(x)
-        return x
+        # Hidden layer
+        hidden_output = self.act1_func(self.hidden(x))
+        # Combine direct connection and hidden layer output
+        combined_output = torch.cat((x, hidden_output), dim=1)
+        # Output layer
+        output = self.act2_func(self.output(combined_output))
+        return output
+
+        # x = x.clone().detach()  # torch.tensor(x, dtype=torch.float32)
+        # x = self.fc1(x)
+        # x = self.act1_func(x)
+        # x = self.fc2(x)
+        # x = self.act2_func(x)
+        # return x
 
 
 class BaseCfnTorch(BaseEstimator):
