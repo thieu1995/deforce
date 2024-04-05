@@ -28,7 +28,7 @@ print(type(data.X_train), type(data.y_train))
 
 ## Create model
 model = CfnRegressor(hidden_size=20, act1_name="tanh", act2_name="sigmoid", obj_name="MSE",
-                      max_epochs=500, batch_size=4, optimizer="SGD", optimizer_paras=None, verbose=True)
+                      max_epochs=500, batch_size=4, optimizer="SGD", optimizer_paras=None, verbose=True, seed=42)
 
 ## Train the model
 model.fit(data.X_train, data.y_train)

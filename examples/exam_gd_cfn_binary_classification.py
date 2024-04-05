@@ -28,7 +28,7 @@ print(type(data.X_train), type(data.y_train))
 
 ## Create model
 model = CfnClassifier(hidden_size=50, act1_name="relu", act2_name="sigmoid", obj_name="BCEL",
-                      max_epochs=500, batch_size=16, optimizer="SGD", optimizer_paras=None, verbose=True)
+                      max_epochs=500, batch_size=16, optimizer="SGD", optimizer_paras=None, verbose=True, seed=42)
 
 ## Train the model
 model.fit(X=data.X_train, y=data.y_train)

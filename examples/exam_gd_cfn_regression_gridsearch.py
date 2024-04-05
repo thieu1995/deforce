@@ -42,7 +42,7 @@ params = {
 }
 
 ## Define the model
-model = CfnRegressor(verbose=False)
+model = CfnRegressor(verbose=False, seed=42)
 
 ## Define the gridsearch object
 gs = GridSearchCV(model, params, refit=True, cv=3, verbose=2)
