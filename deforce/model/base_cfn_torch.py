@@ -12,8 +12,8 @@ import torch
 import torch.nn as nn
 from permetrics import ClassificationMetric, RegressionMetric
 from sklearn.base import BaseEstimator
-from deforce.toolkit import validator
-from deforce.toolkit.metric_util import get_all_classification_metrics, get_all_regression_metrics
+from deforce.toolkit import validators
+from deforce.toolkit.metrics import get_all_classification_metrics, get_all_regression_metrics
 
 
 class CfnTorch(nn.Module):

@@ -11,8 +11,8 @@ import pandas as pd
 from permetrics import RegressionMetric, ClassificationMetric
 from sklearn.base import BaseEstimator
 from mealpy import get_optimizer_by_name, Optimizer, get_all_optimizers, FloatVar
-from deforce.toolkit import act_util, validator
-from deforce.toolkit.metric_util import get_all_regression_metrics, get_all_classification_metrics
+from deforce.toolkit import activators, validators
+from deforce.toolkit.metrics import get_all_regression_metrics, get_all_classification_metrics
 
 
 class CfnNumpy:
