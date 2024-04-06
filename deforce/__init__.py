@@ -4,7 +4,7 @@
 #       Github: https://github.com/thieu1995        %                         
 # --------------------------------------------------%
 
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 
 from deforce.toolkit.preprocessor import Data, DataTransformer
 from deforce.model.gd_cfn import CfnRegressor, CfnClassifier
