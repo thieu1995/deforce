@@ -4,7 +4,7 @@ Installation
 
 * Install the `current PyPI release <https://pypi.python.org/pypi/deforce />`_::
 
-   $ pip install deforce==0.1.0
+   $ pip install deforce==1.0.0
 
 
 * Install directly from source code::
