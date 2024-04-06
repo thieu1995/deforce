@@ -1,7 +1,4 @@
 
-.readthedocs.yaml
-CITATION.cff
-ChangeLog.md
 docs/
 mkdocs.yml
 scripts/
