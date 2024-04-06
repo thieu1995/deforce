@@ -5,6 +5,7 @@
 # --------------------------------------------------%
 
 import numpy as np
+
 from deforce import CfnRegressor
 
 

@@ -5,6 +5,7 @@
 # --------------------------------------------------%
 
 import numpy as np
+
 from deforce import DfoCfnRegressor
 
 
@@ -21,4 +22,3 @@ def test_DfoCfnRegressor_class():
     pred = model.predict(X)
     assert DfoCfnRegressor.SUPPORTED_REG_OBJECTIVES == model.SUPPORTED_REG_OBJECTIVES
     assert len(pred) == X.shape[0]
-
