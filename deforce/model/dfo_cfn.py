@@ -270,7 +270,7 @@ class DfoCfnClassifier(BaseDfoCfn, ClassifierMixin):
         if self.n_labels > 2:
             if self.obj_name in self.CLS_OBJ_LOSSES:
                 self.return_prob = True
-        ohe_scaler = OneHotEncoder(sparse=False)
+        ohe_scaler = OneHotEncoder(sparse_output=False)
         ohe_scaler.fit(np.reshape(y, (-1, 1)))
         obj_scaler = ObjectiveScaler(obj_name="softmax", ohe_scaler=ohe_scaler)
         network = CfnNumpy(input_size=X.shape[1], hidden_size=self.hidden_size, output_size=self.n_labels,
