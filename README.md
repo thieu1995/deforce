@@ -3,7 +3,7 @@
 
 ---
 
-[![GitHub release](https://img.shields.io/badge/release-0.0.1-yellow.svg)](https://github.com/thieu1995/deforce/releases)
+[![GitHub release](https://img.shields.io/badge/release-0.1.0-yellow.svg)](https://github.com/thieu1995/deforce/releases)
 [![Wheel](https://img.shields.io/pypi/wheel/gensim.svg)](https://pypi.python.org/pypi/deforce) 
 [![PyPI version](https://badge.fury.io/py/deforce.svg)](https://badge.fury.io/py/deforce)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/deforce.svg)
@@ -82,7 +82,7 @@ Please include these citations if you plan to use this library:
 
 * Install the [current PyPI release](https://pypi.python.org/pypi/deforce):
 ```sh 
-$ pip install deforce==0.0.1
+$ pip install deforce==0.1.0
 ```
 
 * Install directly from source code
