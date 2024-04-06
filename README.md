@@ -3,7 +3,7 @@
 
 ---
 
-[![GitHub release](https://img.shields.io/badge/release-0.1.0-yellow.svg)](https://github.com/thieu1995/deforce/releases)
+[![GitHub release](https://img.shields.io/badge/release-1.0.0-yellow.svg)](https://github.com/thieu1995/deforce/releases)
 [![Wheel](https://img.shields.io/pypi/wheel/gensim.svg)](https://pypi.python.org/pypi/deforce) 
 [![PyPI version](https://badge.fury.io/py/deforce.svg)](https://badge.fury.io/py/deforce)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/deforce.svg)

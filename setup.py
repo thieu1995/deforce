@@ -15,7 +15,7 @@ def readme():
 
 setup(
     name="deforce",
-    version="0.1.0",
+    version="1.0.0",
     author="Thieu",
     author_email="nguyenthieu2102@gmail.com",
     description="deforce: Derivative-Free Algorithms for Optimizing Cascade Forward Neural Networks",
