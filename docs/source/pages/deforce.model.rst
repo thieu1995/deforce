@@ -1,9 +1,6 @@
 deforce.model package
 =====================
 
-Submodules
-----------
-
 deforce.model.base\_cfn\_numpy module
 -------------------------------------
 
@@ -24,6 +21,14 @@ deforce.model.dfo\_cfn module
 -----------------------------
 
 .. automodule:: deforce.model.dfo_cfn
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+deforce.model.dfo\_tune\_cfn module
+-----------------------------------
+
+.. automodule:: deforce.model.dfo_tune_cfn
    :members:
    :undoc-members:
    :show-inheritance:

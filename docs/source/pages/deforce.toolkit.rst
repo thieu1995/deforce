@@ -1,9 +1,6 @@
 deforce.toolkit package
 =======================
 
-Submodules
-----------
-
 deforce.toolkit.activators module
 ---------------------------------
 

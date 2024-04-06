@@ -1,9 +1,6 @@
 deforce package
 ===============
 
-Subpackages
------------
-
 .. toctree::
    :maxdepth: 4
 
