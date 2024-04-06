@@ -23,13 +23,13 @@ deforce (DErivative Free Optimization foR Cascade forward nEural networks) is a 
 you can perform searches and hyperparameter tuning using the features provided by the Scikit-Learn library.
 
 * **Free software:** GNU General Public License (GPL) V3 license
-* **Provided Estimator**: CfnRegressor, CfnClassifier, DfoCfnRegressor, DfoCfnClassifier
+* **Provided Estimator**: CfnRegressor, CfnClassifier, DfoCfnRegressor, DfoCfnClassifier, DfoTuneCfn
 * **Total DFO-based CFN Regressor**: > 200 Models 
 * **Total DFO-based CFN Classifier**: > 200 Models
 * **Total GD-based CFN Regressor**: 12 Models
 * **Total GD-based CFN Classifier**: 12 Models
 * **Supported performance metrics**: >= 67 (47 regressions and 20 classifications)
-* **Supported objective functions (as fitness functions or loss functions)**: >= 67 (47 regressions and 20 classifications)
+* **Supported objective functions**: >= 67 (47 regressions and 20 classifications)
 * **Documentation:** https://deforce.readthedocs.io
 * **Python versions:** >= 3.8.x
 * **Dependencies:** numpy, scipy, scikit-learn, pandas, mealpy, permetrics, torch, skorch
@@ -43,8 +43,7 @@ The paper can be accessed at the following [link](https://doi.org/10.1038%2Fs415
 
 Please include these citations if you plan to use this library:
 
-```code
-
+```bibtex
 @software{thieu_deforce_2024,
   author = {Van Thieu, Nguyen},
   title = {{deforce: Derivative-Free Algorithms for Optimizing Cascade Forward Neural Networks}},
@@ -71,17 +70,6 @@ Please include these citations if you plan to use this library:
   year={2023},
   publisher={Elsevier}
 }
-
-@article{thieu2019efficient,
-  title={Efficient time-series forecasting using neural network and opposition-based coral reefs optimization},
-  author={Thieu Nguyen, Tu Nguyen and Nguyen, Binh Minh and Nguyen, Giang},
-  journal={International Journal of Computational Intelligence Systems},
-  volume={12},
-  number={2},
-  pages={1144--1161},
-  year={2019}
-}
-
 ```
 
 # Installation
@@ -91,7 +79,7 @@ Please include these citations if you plan to use this library:
 $ pip install deforce
 ```
 
-After installation, check the version you are using by:
+After installation, check the installed version by:
 
 ```sh
 $ python
@@ -141,7 +129,7 @@ classifier = DfoCfnClassifier(hidden_size=50, act1_name="tanh", act2_name="softm
                               obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True, seed=42)
 ```
 
-5) After you define the model, do something with it
+3) After you define the model, do something with it
 + Use provides functions to train, predict, and evaluate model
 
 ```python
@@ -181,26 +169,3 @@ model.save_model(save_path="history", filename="traditional_CFN.pkl")
 ## Load model 
 trained_model = CfnRegressor.load_model(load_path="history", filename="traditional_CFN.pkl")
 ```
-
-# Support (questions, problems)
-
-### Official Links 
-
-* Official source code repo: https://github.com/thieu1995/deforce
-* Official document: https://metapeceptron.readthedocs.io/
-* Download releases: https://pypi.org/project/deforce/
-* Issue tracker: https://github.com/thieu1995/deforce/issues
-* Notable changes log: https://github.com/thieu1995/deforce/blob/master/ChangeLog.md
-* Official chat group: https://t.me/+fRVCJGuGJg1mNDg1
-
-* This project also related to our another projects which are "optimization" and "machine learning", check it here:
-    * https://github.com/thieu1995/mealpy
-    * https://github.com/thieu1995/metaheuristics
-    * https://github.com/thieu1995/opfunu
-    * https://github.com/thieu1995/enoppy
-    * https://github.com/thieu1995/permetrics
-    * https://github.com/thieu1995/MetaCluster
-    * https://github.com/thieu1995/pfevaluator
-    * https://github.com/thieu1995/IntelELM
-    * https://github.com/thieu1995/reflame
-    * https://github.com/aiir-team
