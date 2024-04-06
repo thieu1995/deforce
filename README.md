@@ -19,11 +19,16 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10935437.svg)](https://doi.org/10.5281/zenodo.10935437)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-deforce (DErivative Free Optimization foR Cascade forward nEural networks) is a Python library that implements variants and the traditional version of Cascade Forward Neural Networks. These include Derivative Free-optimized CFN models (such as GA, PSO, WOA, TLO, DE, ...) and Gradient Descent-optimized CFN models (such as SGD, Adam, Adelta, Adagrad, ...). It provides a comprehensive list of optimizers for training CFN models and is also compatible with the Scikit-Learn library. With deforce, 
-you can perform searches and hyperparameter tuning using the features provided by the Scikit-Learn library.
+`deforce` (DErivative Free Optimization foR Cascade forward nEural networks) is a Python library that implements 
+variants and the traditional version of Cascade Forward Neural Networks. These include Derivative Free-optimized CFN 
+models (such as genetic algorithm, particle swarm optimization, whale optimization algorithm, teaching learning 
+optimization, differential evolution, ...) and Gradient Descent-optimized CFN models (such as stochastic gradient 
+descent, Adam optimizer, Adelta optimizer, ...). It provides a comprehensive list of optimizers for training CFN 
+models and is also compatible with the Scikit-Learn library. With deforce, you can perform searches and 
+hyperparameter tuning for traditional CFN networks using the features provided by the Scikit-Learn library.
 
 * **Free software:** GNU General Public License (GPL) V3 license
-* **Provided Estimator**: CfnRegressor, CfnClassifier, DfoCfnRegressor, DfoCfnClassifier, DfoTuneCfn
+* **Provided Estimator**: `CfnRegressor`, `CfnClassifier`, `DfoCfnRegressor`, `DfoCfnClassifier`, `DfoTuneCfn`
 * **Total DFO-based CFN Regressor**: > 200 Models 
 * **Total DFO-based CFN Classifier**: > 200 Models
 * **Total GD-based CFN Regressor**: 12 Models
@@ -99,7 +104,7 @@ from deforce import CfnRegressor, CfnClassifier
 from deforce import DfoCfnRegressor, DfoCfnClassifier
 ```
 
-2) What can you do with all model classes
+2) What can you do with all `model` classes
 
 ```python
 from deforce import CfnRegressor, CfnClassifier, DfoCfnRegressor, DfoCfnClassifier
@@ -129,7 +134,7 @@ classifier = DfoCfnClassifier(hidden_size=50, act1_name="tanh", act2_name="softm
                               obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True, seed=42)
 ```
 
-3) After you define the model, do something with it
+3) After you define the `model`, do something with it
 + Use provides functions to train, predict, and evaluate model
 
 ```python
