@@ -37,17 +37,21 @@ you can perform searches and hyperparameter tuning using the features provided b
 
 # Citation Request 
 
-If you want to understand how Metaheuristic is applied to CFNN, you need to read the paper 
-titled **"Optimization of neural-network model using a meta-heuristic algorithm for the estimation of dynamic Poisson’s ratio of selected rock types"**. 
+If you want to understand how to use Derivative Free-optimized Cascade Forward Neural Network, you 
+need to read the paper titled **"Optimization of neural-network model using a meta-heuristic algorithm for the estimation of dynamic Poisson’s ratio of selected rock types"**. 
 The paper can be accessed at the following [link](https://doi.org/10.1038%2Fs41598-023-38163-0)
-
 
 Please include these citations if you plan to use this library:
 
 ```code
 
-
-
+@software{thieu_deforce_2024,
+  author = {Van Thieu, Nguyen},
+  title = {{deforce: Derivative-Free Algorithms for Optimizing Cascade Forward Neural Networks}},
+  url = {https://github.com/thieu1995/deforce},
+  doi = {10.5281/zenodo.10935437},
+  year = {2024}
+}
 
 @article{van2023mealpy,
   title={MEALPY: An open-source library for latest meta-heuristic algorithms in Python},
@@ -84,22 +88,10 @@ Please include these citations if you plan to use this library:
 
 * Install the [current PyPI release](https://pypi.python.org/pypi/deforce):
 ```sh 
-$ pip install deforce==0.1.0
+$ pip install deforce
 ```
 
-* Install directly from source code
-```sh 
-$ git clone https://github.com/thieu1995/deforce.git
-$ cd deforce
-$ python setup.py install
-```
-
-* In case, you want to install the development version from Github:
-```sh 
-$ pip install git+https://github.com/thieu1995/deforce 
-```
-
-After installation, you can import deforce as any other Python module:
+After installation, check the version you are using by:
 
 ```sh
 $ python
@@ -109,9 +101,9 @@ $ python
 
 ### Examples
 
-Please check all use cases and examples in folder [examples](examples).
+Please check [documentation website](https://deforce.readthedocs.io/) and [examples folder](examples).
 
-1) deforce provides this useful classes
+1) `deforce` provides this useful classes
 
 ```python
 from deforce import DataTransformer, Data
@@ -119,86 +111,18 @@ from deforce import CfnRegressor, CfnClassifier
 from deforce import DfoCfnRegressor, DfoCfnClassifier
 ```
 
-2) What you can do with `DataTransformer` class
-
-We provide many scaler classes that you can select and make a combination of transforming your data via 
-DataTransformer class. For example: 
-
-2.1) I want to scale data by `Loge` and then `Sqrt` and then `MinMax`:
-
-```python
-from deforce import DataTransformer
-import pandas as pd
-from sklearn.model_selection import train_test_split
-
-dataset = pd.read_csv('Position_Salaries.csv')
-X = dataset.iloc[:, 1:5].values
-y = dataset.iloc[:, 5].values
-X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.2)
-
-dt = DataTransformer(scaling_methods=("loge", "sqrt", "minmax"))
-X_train_scaled = dt.fit_transform(X_train)
-X_test_scaled = dt.transform(X_test)
-```
-
-2.2) I want to scale data by `YeoJohnson` and then `Standard`:
-
-```python
-from deforce import DataTransformer
-import pandas as pd
-from sklearn.model_selection import train_test_split
-
-dataset = pd.read_csv('Position_Salaries.csv')
-X = dataset.iloc[:, 1:5].values
-y = dataset.iloc[:, 5].values
-X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.2)
-
-dt = DataTransformer(scaling_methods=("yeo-johnson", "standard"))
-X_train_scaled = dt.fit_transform(X_train)
-X_test_scaled = dt.transform(X_test)
-```
-
-3) What can you do with `Data` class
-+ You can load your dataset into Data class
-+ You can split dataset to train and test set
-+ You can scale dataset without using DataTransformer class
-+ You can scale labels using LabelEncoder
-
-```python
-from deforce import Data
-import pandas as pd
-
-dataset = pd.read_csv('Position_Salaries.csv')
-X = dataset.iloc[:, 1:5].values
-y = dataset.iloc[:, 5].values
-
-data = Data(X, y, name="position_salaries")
-
-#### Split dataset into train and test set
-data.split_train_test(test_size=0.2, shuffle=True, random_state=100, inplace=True)
-
-#### Feature Scaling
-data.X_train, scaler_X = data.scale(data.X_train, scaling_methods=("standard", "sqrt", "minmax"))
-data.X_test = scaler_X.transform(data.X_test)
-
-data.y_train, scaler_y = data.encode_label(data.y_train)  # This is for classification problem only
-data.y_test = scaler_y.transform(data.y_test)
-```
-
-4) What can you do with all model classes
-+ Define the model 
-+ Use provides functions to train, predict, and evaluate model
+2) What can you do with all model classes
 
 ```python
 from deforce import CfnRegressor, CfnClassifier, DfoCfnRegressor, DfoCfnClassifier
 
 ## Use standard CFN model for regression problem
 regressor = CfnRegressor(hidden_size=50, act1_name="tanh", act2_name="sigmoid", obj_name="MSE",
-                         max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False)
+                         max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False, seed=42)
 
 ## Use standard CFN model for classification problem 
 classifier = CfnClassifier(hidden_size=50, act1_name="tanh", act2_name="sigmoid", obj_name="NLLL",
-                           max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False)
+                           max_epochs=1000, batch_size=32, optimizer="SGD", optimizer_paras=None, verbose=False, seed=42)
 
 ## Use Metaheuristic-optimized CFN model for regression problem
 print(DfoCfnClassifier.SUPPORTED_OPTIMIZERS)
@@ -206,7 +130,7 @@ print(DfoCfnClassifier.SUPPORTED_REG_OBJECTIVES)
 
 opt_paras = {"name": "WOA", "epoch": 100, "pop_size": 30}
 regressor = DfoCfnRegressor(hidden_size=50, act1_name="tanh", act2_name="sigmoid",
-                            obj_name="MSE", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True)
+                            obj_name="MSE", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True, seed=42)
 
 ## Use Metaheuristic-optimized CFN model for classification problem
 print(DfoCfnClassifier.SUPPORTED_OPTIMIZERS)
@@ -214,10 +138,11 @@ print(DfoCfnClassifier.SUPPORTED_CLS_OBJECTIVES)
 
 opt_paras = {"name": "WOA", "epoch": 100, "pop_size": 30}
 classifier = DfoCfnClassifier(hidden_size=50, act1_name="tanh", act2_name="softmax",
-                              obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True)
+                              obj_name="CEL", optimizer="OriginalWOA", optimizer_paras=opt_paras, verbose=True, seed=42)
 ```
 
-5) What can you do with model object
+5) After you define the model, do something with it
++ Use provides functions to train, predict, and evaluate model
 
 ```python
 from deforce import CfnRegressor, Data
