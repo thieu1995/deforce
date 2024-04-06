@@ -1,5 +1,5 @@
 
-docs/
+docs-new/
 mkdocs.yml
 scripts/
 wow.py
@@ -9,7 +9,6 @@ deforce/data/
 .idea/
 tut_upcode.md
 drafts/
-docs/refs/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
