@@ -8,8 +8,6 @@ mkdocs.yml
 scripts/
 wow.py
 
-tests/
-
 deforce/data/
 # Pycharm
 .idea/
