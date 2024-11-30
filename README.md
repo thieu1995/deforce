@@ -28,16 +28,14 @@ models and is also compatible with the Scikit-Learn library. With deforce, you c
 hyperparameter tuning for traditional CFN networks using the features provided by the Scikit-Learn library.
 
 * **Free software:** GNU General Public License (GPL) V3 license
-* **Provided Estimator**: `CfnRegressor`, `CfnClassifier`, `DfoCfnRegressor`, `DfoCfnClassifier`, `DfoTuneCfn`
-* **Total DFO-based CFN Regressor**: > 200 Models 
-* **Total DFO-based CFN Classifier**: > 200 Models
-* **Total GD-based CFN Regressor**: 12 Models
-* **Total GD-based CFN Classifier**: 12 Models
+* **Provided estimator**: `CfnRegressor`, `CfnClassifier`, `DfoCfnRegressor`, `DfoCfnClassifier`, `DfoTuneCfn`
+* **Total DFO-based CFN models**: > 200 regressors, > 200 classifiers. 
+* **Total GD-based CFN models**: 12 regressors, 12 classifiers.
 * **Supported performance metrics**: >= 67 (47 regressions and 20 classifications)
 * **Supported objective functions**: >= 67 (47 regressions and 20 classifications)
 * **Documentation:** https://deforce.readthedocs.io
 * **Python versions:** >= 3.8.x
-* **Dependencies:** numpy, scipy, scikit-learn, pandas, mealpy, permetrics, torch, skorch
+* **Dependencies:** `numpy`, `scipy`, `scikit-learn`, `pandas`, `mealpy`, `permetrics`, `torch`, `skorch`
 
 
 # Citation Request 
@@ -176,3 +174,5 @@ model.save_model(save_path="history", filename="traditional_CFN.pkl")
 ## Load model 
 trained_model = CfnRegressor.load_model(load_path="history", filename="traditional_CFN.pkl")
 ```
+
+
