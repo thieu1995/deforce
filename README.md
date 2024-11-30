@@ -49,6 +49,18 @@ The paper can be accessed at the following [link](https://doi.org/10.1038%2Fs415
 Please include these citations if you plan to use this library:
 
 ```bibtex
+@article{van2024deforce,
+  title={deforce: Derivative-free algorithms for optimizing Cascade Forward Neural Networks},
+  author={Van Thieu, Nguyen and Nguyen, Hoang and Garg, Harish and Sirbiladze, Gia},
+  journal={Software Impacts},
+  volume={21},
+  pages={100675},
+  year={2024},
+  publisher={Elsevier},
+  doi={10.1016/j.simpa.2024.100675},
+  url={https://doi.org/10.1016/j.simpa.2024.100675}
+}
+
 @software{thieu_deforce_2024,
   author = {Van Thieu, Nguyen},
   title = {{deforce: Derivative-Free Algorithms for Optimizing Cascade Forward Neural Networks}},
@@ -64,16 +76,6 @@ Please include these citations if you plan to use this library:
   year={2023},
   publisher={Elsevier},
   doi={10.1016/j.sysarc.2023.102871}
-}
-
-@article{van2023groundwater,
-  title={Groundwater level modeling using Augmented Artificial Ecosystem Optimization},
-  author={Van Thieu, Nguyen and Barma, Surajit Deb and Van Lam, To and Kisi, Ozgur and Mahesha, Amai},
-  journal={Journal of Hydrology},
-  volume={617},
-  pages={129034},
-  year={2023},
-  publisher={Elsevier}
 }
 ```
 
